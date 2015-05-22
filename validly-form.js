@@ -130,16 +130,27 @@ define(
             return this.validator.equals( value, el.value );
         };
 
-        form.prototype.trigger = function( data ){
-            var e = new Event( "keyup" ),
-                els = data.split( " " );
+       form.prototype.trigger = function( data ){
+    		var e ;	
+	if(document.createEventObject) {
+         e = document.createEventObject("keyup");
+    	}else {
+       		e = new Event("keyup");
+    	}
+        	var els = data.split( " " );
 
-            for( var i = 0; i < els.length; i++ ){
-                document.getElementById( els[i] ).dispatchEvent( e );
-            }
+       for( var i = 0; i < els.length; i++ ){
+        if(document.createEventObject){
+            document.getElementById( els[i] ).fireEvent("onkeyup", e);
+        }
+        else{
+            document.getElementById( els[i] ).dispatchEvent( e );
+        }
+    }
 
-            return true;
-        };
+    return true;
+};
+
 
         form.prototype.getFieldsToValidate = function(){
             var nodes = document.querySelectorAll("[" + this.options.prefix + "]"),
