@@ -1,8 +1,8 @@
 {
-  "name": "validly-form",
+  "name": "vuhl-validly-form",
   "main": "validly-form.js",
-  "version": "0.1.0",
-  "homepage": "https://github.com/rockerest/validly-form",
+  "version": "0.1.1",
+  "homepage": "https://github.com/vuhl/validly-form",
   "authors": [
     "rockerest <admin@rockerest.com>"
   ],
